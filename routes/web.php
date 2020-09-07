@@ -17,4 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('saludo', 'HelloController');
+Route::get('home', function () {
+    return view('template');
+});
+
+Route::resource("persons", 'PersonsController');
