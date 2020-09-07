@@ -22,3 +22,5 @@ Route::get('home', function () {
 });
 
 Route::resource("persons", 'PersonsController');
+
+Route::post('personsStore',"PersonsController@store");
