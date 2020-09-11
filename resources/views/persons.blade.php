@@ -24,6 +24,7 @@
 
                 <div class="modal-body">
                     <form action="" name="persons" id="persons">
+                        <input type="hidden" name="id">
                         Firstname
                         <input type="text" name="firstname" class="form-control">
 
@@ -37,6 +38,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" onclick="personsUpdate()" class="btn btn-warning">Modificar</button>
                     <button type="button" onclick="personsStore()" class="btn btn-success">Guardar</button>
                 </div>
             </form>

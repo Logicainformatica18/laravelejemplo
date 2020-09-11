@@ -24,3 +24,6 @@ Route::get('home', function () {
 Route::resource("persons", 'PersonsController');
 
 Route::post('personsStore',"PersonsController@store");
+Route::post('personsEdit',"PersonsController@edit");
+Route::post('personsUpdate',"PersonsController@update");
+Route::post('personsDestroy',"PersonsController@destroy");

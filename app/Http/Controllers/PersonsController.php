@@ -68,9 +68,12 @@ class PersonsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+
+        $persons = Persons::find($request->id);
+        return $persons;
+        //  return view("personstable", compact("persons"));
     }
 
     /**
@@ -80,9 +83,16 @@ class PersonsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
+        $persons = Persons::find($request->id);
+
+        $persons->firtsname = $request->firstname;
+        $persons->lastname = $request->lastname;
+        $persons->names = $request->names;
+        $persons->save();
+        return $this->create();
     }
 
     /**
@@ -91,8 +101,10 @@ class PersonsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
         //
+        Persons::find($request->id)->delete();
+        return $this->create();
     }
 }
