@@ -27,3 +27,13 @@ Route::post('personsStore',"PersonsController@store");
 Route::post('personsEdit',"PersonsController@edit");
 Route::post('personsUpdate',"PersonsController@update");
 Route::post('personsDestroy',"PersonsController@destroy");
+
+
+
+
+Route::resource("category", 'CategoryController');
+
+Route::post('categoryStore',"CategoryController@store");
+Route::post('categoryEdit',"CategoryController@edit");
+Route::post('categoryUpdate',"CategoryController@update");
+Route::post('categoryDestroy',"CategoryController@destroy");
