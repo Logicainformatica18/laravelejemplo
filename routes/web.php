@@ -37,3 +37,11 @@ Route::post('categoryStore',"CategoryController@store");
 Route::post('categoryEdit',"CategoryController@edit");
 Route::post('categoryUpdate',"CategoryController@update");
 Route::post('categoryDestroy',"CategoryController@destroy");
+
+
+Route::resource("product", 'ProductController');
+
+Route::post('productStore',"ProductController@store");
+Route::post('productEdit',"ProductController@edit");
+Route::post('productUpdate',"ProductController@update");
+Route::post('productDestroy',"ProductController@destroy");

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $product = Product::paginate(6);
+        $category = Category::all();
+        return view("product", compact("product","category"));
     }
 
     /**
@@ -24,7 +27,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $product = Product::paginate(6);
+        return view("producttable", compact("product"));
     }
 
     /**
@@ -35,7 +39,12 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = new Product;
+
+        $product->description = $request->description;
+        $product->category_id = $request->category_id;
+        $product->save();
+     return $this->create();
     }
 
     /**
@@ -55,9 +64,10 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Request $request)
     {
-        //
+        $product = Product::find($request->id);
+        return $product;
     }
 
     /**
@@ -67,9 +77,14 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request)
     {
-        //
+        $product = Product::find($request->id);
+
+        $product->description = $request->description;
+        $product->category_id = $request->category_id;
+        $product->save();
+        return $this->create();
     }
 
     /**
@@ -78,8 +93,9 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Request $request)
     {
-        //
+        Product::find($request->id)->delete();
+        return $this->create();
     }
 }
