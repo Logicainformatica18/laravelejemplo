@@ -47,3 +47,7 @@ Route::post('productStore',"ProductController@store");
 Route::post('productEdit',"ProductController@edit");
 Route::post('productUpdate',"ProductController@update");
 Route::post('productDestroy',"ProductController@destroy");
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
