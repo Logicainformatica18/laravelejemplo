@@ -88,9 +88,9 @@ class RouteRegistrar
      */
     public function attribute($key, $value)
     {
-        if (! in_array($key, $this->allowedAttributes)) {
-            throw new InvalidArgumentException("Attribute [{$key}] does not exist.");
-        }
+        // if (! in_array($key, $this->allowedAttributes)) {
+        //     throw new InvalidArgumentException("Attribute [{$key}] does not exist.");
+        // }
 
         $this->attributes[Arr::get($this->aliases, $key, $key)] = $value;
 
